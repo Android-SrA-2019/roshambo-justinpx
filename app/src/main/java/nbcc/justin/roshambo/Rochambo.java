@@ -1,8 +1,12 @@
+package nbcc.justin.roshambo;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Rochambo {
+public class Rochambo implements Serializable {
 
     public static final int ROCK = 0;
     public static final int PAPER = 1;
@@ -10,7 +14,7 @@ public class Rochambo {
     public static final int NONE = 3;
 
     public static final int WIN = R.string.win;
-    public static final int LOSE = R.string.lose;
+    public static final int LOSE = R.string.loss;
     public static final int DRAW = R.string.draw;
 
 
@@ -31,6 +35,7 @@ public class Rochambo {
      *
      * @param playerMove  ROCK, PAPER, or SCISSOR are valid arguments
      */
+     @RequiresApi(api = Build.VERSION_CODES.O)
      public void playerMakesMove(int playerMove) {
 
         if ( Integer.compareUnsigned(playerMove , NONE) > 0)
